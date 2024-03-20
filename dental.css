@@ -37,8 +37,13 @@
 }
 
 .content{
-    text-align: top;
-
+    position: static;
+   padding: 100px 100px 100px 100px ;
+   display: flex;
+   flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 .content{
     
