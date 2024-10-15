@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dental clic</title>
+  <link rel="stylesheet" href="Appointment.css">
+</head>
+
+<body>
+  <div class="homepage">
+    <div class="logo">
+      <a href="home_page.html"><img src="Newlogo.png" width="150px" alt="Home Page">
+      </a>
+    </div>
+    <div class="login">
+      <a href="dental.html">
+        <h3>Login</h3>
+      </a>
+    </div>
+  </div>
+  <div class="topnav">
+    <a href="home_page.html">Home</a>
+    <a class="active" href="Appointment.html">Appointment</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>`
+  </div>
+  <Script>
+    // Define the position where you want the navbar to become sticky
+    var sticky = 100; // Change this value to whatever suits your design
+
+    // Get a reference to your navbar element
+    var navbar = document.getElementById("navbar"); // Change "navbar" to match the id of your navbar element
+
+    // Function to add or remove the "sticky" class based on scroll position
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky");
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+  </Script>
+  <div class="big">
+    <div class="appointment-form-container">
+      <h2>Book Your Appointment</h2>
+      <form action="#" method="post" class="appointment-form">
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="date">Preferred Date:</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+          <label for="time">Preferred Time:</label>
+          <input type="time" id="time" name="time" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Additional Message:</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+        <button type="submit">Book Appointment</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
