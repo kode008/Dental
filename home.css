@@ -3,8 +3,27 @@
   padding: 0;
   font-family: 'Times New Roman', Times, serif;
 }
-html {
-	scroll-timeline: --page-scroll block;
+body {
+  overflow-x: hidden;
+  background-image: #ffff;
+  margin-top: 65px;
+  margin-left: 0; /* Explicitly set left margin to 0 */
+  padding-left: 0; /* Explicitly set left padding to 0 */
+  width: 100%; /* Ensure body takes full width */
+}
+html{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Mobile body adjustments - no top margin needed since nav is hidden initially */
+@media screen and (max-width: 768px) {
+  body {
+    margin-top: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
 }
 
 @keyframes grow-progress {
@@ -14,97 +33,85 @@ html {
 
 #progress {
 	position: fixed;
-	left: 0; top: 0;
-	width: 100%; height: .5em;
-	background:rgb(80, 227, 255);
 
+  top: 0;
+	width: 100%; 
+  height: .5em;
+	background:rgb(80, 227, 255);
 	transform-origin: 0%;
 	animation: grow-progress auto linear;
 	animation-timeline: --page-scroll;
 }
-@-webkit-keyframes scaler{
 
+@-webkit-keyframes scaler{
   0%{
       -webkit-transform: scale(1);
   }
-
   33%{
       -webkit-transform: scale(1.5);
       opacity: 0.20;
   }
-
   67%{
       -webkit-transform: scale(2);
       opacity: 0.10;
   }
-
   100%{
       -webkit-transform: scale(2.5);
       opacity: 0;
   }
-
-
 }
 
 @-moz-keyframes scaler{
-
   0%{
       -moz-transform: scale(1);
   }
-
   33%{
       -moz-transform: scale(1.5);
       opacity: 0.20;
   }
-
   67%{
       -moz-transform: scale(2);
       opacity: 0.10;
   }
-
   100%{
       -moz-transform: scale(2.5);
       opacity: 0;
   }
-
-
 }
 
 @keyframes scaler{
-
   0%{
       transform: scale(1);
   }
-
   33%{
       transform: scale(1.5);
       opacity: 0.20;
   }
-
   67%{
       transform: scale(2);
       opacity: 0.10;
   }
-
   100%{
       transform: scale(2.5);
       opacity: 0;
   }
 }
+
 @media(prefers-reduced-motion){
   .hidden{
     transition: none;
   }
 }
+
 @keyframes fadeInUp {
 0% {opacity: 0;
     transform: translateY(8%);
 }
-
 100% {opacity: 1;
   transform: translateY(0%);
 }
 }
+
 @-moz-keyframes fadeInUp 
 {
   0% {
@@ -115,7 +122,6 @@ html {
   }
   }
 @-webkit-keyframes fadeInUp {
-
 0% {opacity: 0;}
 100% {opacity: 1;}
 }
@@ -124,7 +130,6 @@ html {
 0% {
   opacity: 0;
 }
-
 100% {
   opacity: 1;
 }
@@ -134,16 +139,15 @@ html {
 0% {
   opacity: 0;
 }
-
 100% {
   opacity: 1;
 }
 }
+
 @keyframes fadeIn {
 0% {
   opacity: 0;
 }
-
 100% {
   opacity: 1;
 }
@@ -153,7 +157,6 @@ html {
 0% {
   opacity: 0;
 }
-
 100% {
   opacity: 1;
 }
@@ -163,7 +166,6 @@ html {
 0% {
   opacity: 0;
 }
-
 100% {
   opacity: 1;
 }
@@ -173,7 +175,6 @@ html {
 0% {
   opacity: 0;
 }
-
 100% {
   opacity: 1;
 }
@@ -183,11 +184,11 @@ html {
 0% {
   opacity: 0;
 }
-
 100% {
   opacity: 1;
 }
 }
+
 @keyframes reveal {
 	from {
 		opacity: 0;
@@ -198,6 +199,7 @@ html {
 		clip-path: inset(0% 0% 0% 0%);
 	}
 }
+
 @keyframes fade-up{
   from{
 opacity: 0;
@@ -219,23 +221,11 @@ opacity: 0;
   }
 }
 
-body {
-  background-image: #ffff;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-size: cover;
-  margin-top: 65px;  
-  scroll-behavior: smooth;
-  /*background:linear-gradient(45deg, #ffffff,#f7f7f7);*/
-}
-
-
 .animation{
   display: flex;
   justify-content:center ;
-  
 }
+
 .animation_main_div{
   position:flex;
   justify-content: center;
@@ -248,33 +238,39 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 8em;
-  
-  /* padding: 15px 32px;
-  border: none;
-  border-radius: 50px;
-  text-decoration: none;
-  display: inline-block; */
-
-
 }
+
+/* Mobile responsive animation */
+@media screen and (max-width: 768px) {
+  .animation_main_div{
+    width: 6em;
+  }
+}
+
 .bhnd_login{ 
   width: 150px;
   height: 25px;
   align-content: center;
   justify-content: center;
-  
   background:#fff;
   position:absolute;
   margin-left: auto;
   margin-right: auto;
-
   z-index:5;
   padding:17px 32px;
-  
   border: none;
   border-radius: 50px;
   text-decoration: none;
   display: inline-block;
+}
+
+/* Mobile responsive background login */
+@media screen and (max-width: 768px) {
+  .bhnd_login{
+    width: 120px;
+    height: 20px;
+    padding: 12px 24px;
+  }
 }
   
 .circle{
@@ -284,8 +280,8 @@ body {
     background:rgb(80, 227, 255);
      position: absolute;
     -webkit-animation-timing-function: linear;
-    -webkit-animation: scaler 4s infinite;  /* Chrome, Safari, Opera */
-    -webkit-animation-timing-function: linear;  /* Chrome, Safari, Opera */
+    -webkit-animation: scaler 4s infinite;
+    -webkit-animation-timing-function: linear;
     animation: scaler 4s infinite;
     animation-timing-function: linear;
     animation-delay: 10s;
@@ -304,13 +300,12 @@ body {
     background:rgb(80, 227, 255);
      position: absolute;
     -webkit-animation-timing-function: linear;
-    -webkit-animation: scaler 4s infinite;  /* Chrome, Safari, Opera */
-    -webkit-animation-timing-function: linear;  /* Chrome, Safari, Opera */
+    -webkit-animation: scaler 4s infinite;
+    -webkit-animation-timing-function: linear;
     animation: scaler 4s infinite;
     animation-timing-function: linear;
     animation-delay: 11s;
     z-index: 1;
-
     padding: 15px 32px;
   border: none;
   border-radius: 50px;
@@ -325,8 +320,8 @@ body {
     background:rgb(80, 227, 255);
      position: absolute;
     -webkit-animation-timing-function: linear;
-    -webkit-animation: scaler 4s infinite;  /* Chrome, Safari, Opera */
-    -webkit-animation-timing-function: linear;  /* Chrome, Safari, Opera */
+    -webkit-animation: scaler 4s infinite;
+    -webkit-animation-timing-function: linear;
     animation: scaler 4s infinite;
     animation-timing-function: linear;
     animation-delay: 12s;
@@ -338,7 +333,6 @@ body {
   display: inline-block;
 }
 
-
 .circle4{
     width: 140px;
     height: 25px;
@@ -346,10 +340,10 @@ body {
     background: rgb(80, 227, 255);
      position: absolute;
     -webkit-animation-timing-function: linear;
-    -webkit-animation: scaler 4s infinite;  /* Chrome, Safari, Opera */
-    -moz-animation: scaler 4s infinite;  /* Chrome, Safari, Opera */
-    animation: scaler 4s infinite;  /* Chrome, Safari, Opera */
-    -webkit-animation-timing-function: linear;  /* Chrome, Safari, Opera */
+    -webkit-animation: scaler 4s infinite;
+    -moz-animation: scaler 4s infinite;
+    animation: scaler 4s infinite;
+    -webkit-animation-timing-function: linear;
     animation: scaler 4s infinite;
     animation-timing-function: linear;
     animation-delay: 13s;
@@ -361,24 +355,41 @@ body {
   display: inline-block;
 }
 
-
-
+/* Mobile responsive circles */
+@media screen and (max-width: 768px) {
+  .circle, .circle2, .circle3, .circle4 {
+    width: 110px;
+    height: 20px;
+    padding: 12px 24px;
+  }
+}
 
 .mtxt {
-  padding-top: 90px;
+  padding-top: 50px;
   padding-bottom: 60px;
   font-size: 70px;
   padding-bottom: 15vh;
-
-  /*animation: fadeIn 5s;
-  -webkit-animation: fadeIn 5s;
-  -moz-animation: fadeIn 5s;
-  -o-animation: fadeIn 5s;
-  -ms-animation: fadeIn 5s;*/
-   
   animation:  0.75s fadeInUp ; 
   animation-fill-mode: both;
+}
 
+/* Mobile responsive main text */
+@media screen and (max-width: 768px) {
+  .mtxt {
+    font-size: 40px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    padding-bottom: 10vh;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mtxt {
+    font-size: 32px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-bottom: 8vh;
+  }
 }
 
 .logo {
@@ -388,7 +399,6 @@ body {
   padding: 50px 20px;
   margin-top: 50px;
   margin-bottom: 10px;
-
   animation: fadeIn 5s;
   -webkit-animation: fadeIn 5s;
   -moz-animation: fadeIn 5s;
@@ -396,6 +406,35 @@ body {
   -ms-animation: fadeIn 5s;
 }
 
+.logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile responsive logo */
+@media screen and (max-width: 768px) {
+  .logo {
+    padding: 30px 15px;
+    margin-top: 30px;
+  }
+  
+  .logo img {
+    width: 280px;
+    max-width: 90vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .logo {
+    padding: 20px 10px;
+    margin-top: 20px;
+  }
+  
+  .logo img {
+    width: 240px;
+    max-width: 85vw;
+  }
+}
 
 .sectxt {
     font-size: 20px;
@@ -408,22 +447,37 @@ body {
   -ms-animation: fadeIn 225ms;
 }
 
+/* Mobile responsive section text */
+@media screen and (max-width: 768px) {
+  .sectxt {
+    font-size: 18px;
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sectxt {
+    font-size: 16px;
+    padding: 0 15px;
+  }
+}
+
 .homepage {
   height: 52px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
   justify-content: center;
-  padding: 50px 50px;
+  padding: 50px 0; /* Change from 50px 50px to 50px 0 */
   background: rgb(255, 255, 255);
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Mobile responsive homepage */
+@media screen and (max-width: 768px) {
+  .homepage {
+    padding: 30px 20px;
+  }
 }
 
 .login {
@@ -443,7 +497,6 @@ body {
   font-size: 15px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  
   animation: fadeIn 50s;
   -webkit-animation: fadeIn 10s;
   -moz-animation: fadeIn 10s;
@@ -451,28 +504,135 @@ body {
   -ms-animation: fadeIn 10s;
 }
 
+/* Mobile responsive login button */
+@media screen and (max-width: 768px) {
+  .login {
+    width: 120px;
+    height: 20px;
+    padding: 15px 35px;
+    margin: 10px 10px;
+  }
+}
+
 .login a {
   z-index: 8;
-  
   background-color: #f7f7f7;
   color: #222222;
   font-size: 25px;
   text-decoration: none;
   transition: box-shadow 0.3s ease;
-
 }
 
-/* .login a:hover {
-  
-  z-index: 8;
-  background-color: #ffff;
-  color: #222222;
-  cursor: pointer;
-  -webkit-box-shadow: 0px 0px 100px 20px rgba(0,255,255,1);
-  -moz-box-shadow:    0px 0px 100px 20px rgba(0,255,255,1);
-  box-shadow:         0px 0px 100px 20px rgba(0,255,255,1);
+/* Mobile responsive login link */
+@media screen and (max-width: 768px) {
+  .login a {
+    font-size: 20px;
+  }
+}
 
-} */
+@media screen and (max-width: 480px) {
+  .login a {
+    font-size: 18px;
+  }
+}
+
+/* Mobile responsive navigation with scroll behavior */
+@media screen and (max-width: 768px) {
+  .topnav {
+    float: centre;
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+    display: flex;
+    overflow: hidden;
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    padding-top: 9px;
+    top: 5px;
+    z-index: 8;
+    transition: transform 0.3s ease;
+  }
+
+  .sticky {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    transition: top 0.3s ease;
+  }
+
+  .sticky+.content {
+    padding-top: 60px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .topnav {
+    float: centre;
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+    display: flex;
+    overflow: hidden;
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    padding-top: 9px;
+    top: 5px;
+    z-index: 8;
+    transition: transform 0.3s ease;
+  }
+
+  .sticky {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    transition: top 0.3s ease;
+  }
+
+  .sticky+.content {
+    padding-top: 60px;
+  }
+}
+
+.topnav a{
+  float: top;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Mobile responsive nav links */
+@media screen and (max-width: 768px) {
+  .topnav a {
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .topnav a {
+    padding: 8px 10px;
+    font-size: 16px;
+    width: 80%;
+    margin: 2px 0;
+  }
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #326cff;
+  color: white;
+  opacity: 1;
+}
 
 .topnav {
   float: centre;
@@ -486,41 +646,29 @@ body {
   justify-content: center;
   position: sticky;
   padding-top: 9px;
-  top: 0;
+  top: 5px;
   z-index: 8;
+  transition: transform 0.3s ease;
 }
 
-.topnav a{
-  float: top;
-  color: #000000;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #326cff;
-  color: white;
-  opacity: 1;
-}
 .sticky {
   position: fixed;
-  
   width: 100%;
   background-color: white;
   transition: top 0.3s ease;
 }
 
-
 .sticky+.content {
   padding-top: 60px;
 }
+
+/* Mobile responsive sticky */
+@media screen and (max-width: 480px) {
+  .sticky+.content {
+    padding-top: 120px;
+  }
+}
+
 .service{
   text-align: center;
   margin: 50px;
@@ -528,20 +676,37 @@ body {
   border-radius: 50px;
   border: none;
 }
-/* .S1{
-  margin: 50px;
-  font-size: 60px;
-} */
-/* .services{
-  
-} */
+
+/* Mobile responsive service */
+@media screen and (max-width: 768px) {
+  .service {
+    margin: 30px 20px;
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .service {
+    margin: 20px 15px;
+    font-size: 32px;
+  }
+}
+
 .navbar {
   position: relative;
   width: 1200px;
   height: 75px;
   margin: auto;
-  
 }
+
+/* Mobile responsive navbar */
+@media screen and (max-width: 768px) {
+  .navbar {
+    width: 100%;
+    height: auto;
+  }
+}
+
 .topnav a.login {
   background-color: #ddd;
   color: rgb(54, 255, 23);
@@ -555,35 +720,76 @@ body {
   height: 109vh;
 }
 
-
-
 .mantine-1j9y5n7 .product-grid {
   display: grid;
+  flex-wrap: wrap;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   grid-gap: 16px;
 }
 
 .container{
-  
   background-color: #f7f7f7;
   width: 100%;
 }
+
 .ourdocs {
-  
   background-color: #f7f7f7;
   margin-top: 50px;
   font-size: 20px;
 }
+
+/* Mobile responsive our docs */
+@media screen and (max-width: 768px) {
+  .ourdocs {
+    margin-top: 30px;
+    font-size: 18px;
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ourdocs {
+    margin-top: 20px;
+    font-size: 16px;
+    padding: 0 15px;
+  }
+}
+
 .doc{
   border-radius: 60px;
   border: none;
-  transition: box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  height: auto;
 }
 
 .doc:hover{
-  box-shadow: 15px 15px rgba(0, 98, 90, 0.4), 30px 30px rgba(0, 98, 90, 0.3),  45px 45px rgba(0, 98, 90, 0.2), 60px 60px rgba(0, 98, 90, 0.1), 75px 75px rgba(0, 98, 90, 0.05);
-   
+  transform: scale(1.05);
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+}
+
+/* Mobile responsive doctor images */
+@media screen and (max-width: 768px) {
+  .doc {
+    border-radius: 40px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .doc:hover {
+    transform: scale(1.02);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .doc {
+    border-radius: 30px;
+    max-width: 250px;
+  }
 }
 
 .bttn{
@@ -593,79 +799,152 @@ body {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  
 }
+
+/* Mobile responsive button */
+@media screen and (max-width: 768px) {
+  .bttn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .bttn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
 .bttn a {
   background-color: #ffff;
   color: #222222;
   font-size: 25px;
   text-decoration: none;
   transition: box-shadow 0.3s ease;   
-
 }
+
+/* Mobile responsive button link */
+@media screen and (max-width: 768px) {
+  .bttn a {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .bttn a {
+    font-size: 18px;
+  }
+}
+
 .bttn a:hover {
   background-color: #ffff;
   color: #222222;
   cursor: pointer;
   box-shadow: 0 20px 50px rgba(8, 112, 184, 0.7);
-
 }
 
 .container {
   padding:15px ;
   padding-bottom: 100px;
 }
+
+/* Mobile responsive container */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px;
+    padding-bottom: 60px;
+  }
+}
+
 .doc-container .box {
   position: relative;
   opacity: 1;
   animation: fade-up 0.5s linear;
   animation-timeline :view();
 }
+
 .img{
-  
-  /* view-timeline-name: --revealing-image;
-	view-timeline-axis: block;
-
-  animation: linear reveal both;
-	animation-timeline: --revealing-image;
-
-  animation-range: entry 25% cover 50%; */
-
   animation: fly-in linear both;
   animation-timeline: view(block);
   animation-range: cover 0% cover 62%;
 }
-/* .fade-up{
-  opacity: 1;
-  transform: translateY(0);
-} */
+
 .container .doc-container{
   display: grid;
-  
   grid-template-columns: 450px 450px;
   grid-template-rows: 450px 450px 450px;
   gap: 50px;
   justify-content: center;
 }
 
+/* Mobile responsive doctor container - MAJOR CHANGES HERE */
+@media screen and (max-width: 768px) {
+  .container .doc-container{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 30px;
+    padding: 0 20px;
+  }
+  
+  .container .doc-container .box {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container .doc-container{
+    gap: 20px;
+    padding: 0 15px;
+  }
+  
+  .container .doc-container .box {
+    max-width: 300px;
+    padding: 15px;
+  }
+  
+  .container .doc-container .box h3 {
+    font-size: 20px;
+  }
+  
+  .container .doc-container .box p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+
 .hr {
   border:none;
   scale:.5 1;
-  
 }
-
 
 #footer {
   height: 50px;
-  /* the footer's total height */
 }
 
 #footer-content {
   align-content: flex-end;
   background-color: rgba(247,247,247,.9);
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
   height: 32px;
-  /* height + top/bottom paddding + top/bottom border must add up to footer height */
   padding: 8px;
-}  
+}
+
+/* Mobile responsive footer */
+@media screen and (max-width: 768px) {
+  #footer-content {
+    font-size: 13px;
+    padding: 6px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #footer-content {
+    font-size: 12px;
+    padding: 5px;
+  }
+}
